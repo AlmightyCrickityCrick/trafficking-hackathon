@@ -6,7 +6,7 @@ import { RouterLink, RouterView } from 'vue-router'
   <body>
     <div class="side-bar">
       <RouterLink to="/"><img class="bar-icon" src="./assets/home.png"/></RouterLink>
-      <RouterLink to="/user/1"><img class="bar-icon" src="./assets/user.png"/></RouterLink>
+      <RouterLink to="/user/0"><img class="bar-icon" src="./assets/user.png"/></RouterLink>
       <RouterLink to="/upload"><img class="bar-icon" src="./assets/document.png"/></RouterLink>
     </div>
     <RouterView class="page-content"/>

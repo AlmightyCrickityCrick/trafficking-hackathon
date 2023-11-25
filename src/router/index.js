@@ -13,7 +13,7 @@ const router = createRouter({
       component: SearchPage
     },
     {
-      path: '/user/1',
+      path: '/user/0',
       name: 'user',
       component: UserDocumentsPage
     },

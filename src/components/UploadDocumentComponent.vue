@@ -34,7 +34,12 @@
             handleUpload(){
               let formData = new FormData();
 				
-				formData.append('file', this.file);
+				formData.append('file', this.file); 
+        formData.append('user_id', 0); 
+        formData.append('title', "asdsada"); 
+        formData.append('access_type', "private");
+        formData.append('doc_type', "pdf");
+
 				
 				axios.post( '/upload',
 					formData,

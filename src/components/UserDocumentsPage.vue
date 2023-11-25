@@ -27,8 +27,9 @@ export default{
         }
     },
     beforeMount(){
-        axios.get("/user/1/documents").then(d =>{
-                this.documentList = d.data
+        axios.get("/user/0/documents").then(d =>{  
+            console.log(d)
+                this.documentList = d.data.data
             }
                 ).catch(error => console.log(error))
     },
