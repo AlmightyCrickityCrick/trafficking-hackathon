@@ -60,10 +60,8 @@ export default{
                 this.title = d.data.title
                 this.summarize =d.data.summarize
                 // this.type = d.data.type
-                // this.content = d.data.content
+                this.content = `http://localhost:5000/download/1`
                 this.recs = d.data.recs
-                console.log(this.content)
-                console.log(this.$route.params.id)
             }
                 ).catch(error => console.log(error))
                 // .then(d=>{
