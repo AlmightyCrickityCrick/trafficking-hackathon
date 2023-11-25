@@ -30,7 +30,6 @@ export default{
     },
     methods:{
         changeOpenState(){
-            console.log(matches)
             this.open = !this.open
         }
     }
