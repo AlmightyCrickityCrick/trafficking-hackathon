@@ -2,11 +2,11 @@
     <div class="document-container">
 <div class="content-card">
 <h1>{{ this.title }}</h1>
-<p>{{ this.description }}</p>
+<p>{{ this.summarize }}</p>
 
 <div class="media-card">
 
-<a href="https://www.africau.edu/images/default/sample.pdf">Download Content</a>
+<a :href="this.content">Download Content</a>
 </div>
 </div>
 
@@ -34,8 +34,9 @@ export default{
     },
     data(){
         return{
+            id: Number,
             title: "How to get away with murder",
-            description:"Here are 10 easy ways to get away with murder. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pretium feugiat rhoncus. Nam accumsan mattis diam, quis eleifend elit suscipit at. Aliquam erat volutpat. Mauris aliquet velit varius rhoncus congue. Maecenas elementum nunc nec egestas dignissim. Fusce molestie magna ac elit porttitor lacinia. Nulla felis odio, consequat in egestas sed, aliquam sed velit. Cras vel arcu mauris. Etiam sit amet augue sagittis, posuere diam ut, vestibulum dolor.",
+            summarize :"Here are 10 easy ways to get away with murder. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pretium feugiat rhoncus. Nam accumsan mattis diam, quis eleifend elit suscipit at. Aliquam erat volutpat. Mauris aliquet velit varius rhoncus congue. Maecenas elementum nunc nec egestas dignissim. Fusce molestie magna ac elit porttitor lacinia. Nulla felis odio, consequat in egestas sed, aliquam sed velit. Cras vel arcu mauris. Etiam sit amet augue sagittis, posuere diam ut, vestibulum dolor.",
             // type: "audio",
             content: "",
             recs: [{
@@ -52,12 +53,17 @@ export default{
         }
     },
     beforeMount(){
-        axios.get(`/document/${this.$route.params.id}`).then(d =>{
+        this.id = this.$route.params.id
+        this.content = `http://localhost:5000/download/${this.id}`
+        axios.get(`/document/${this.id}`).then(d =>{
+            console.log(d)
                 this.title = d.data.title
-                this.description =d.data.description
-                this.type = d.data.type
+                this.summarize =d.data.summarize
+                // this.type = d.data.type
                 // this.content = d.data.content
                 this.recs = d.data.recs
+                console.log(this.content)
+                console.log(this.$route.params.id)
             }
                 ).catch(error => console.log(error))
                 // .then(d=>{

@@ -41,8 +41,9 @@ export default{
     methods:{
         search(){
             let modifiedKeywords = this.searchKeywords.replace(" ", "_")
-            axios.get("/search?keywords=" + modifiedKeywords).then(d =>{
-                this.documentList = d.data
+            axios.get("/search?keywords=" + modifiedKeywords).then(d =>{ 
+                console.log(d)
+                this.documentList = d.data.data
             }
                 ).catch(error => console.log(error))
         }

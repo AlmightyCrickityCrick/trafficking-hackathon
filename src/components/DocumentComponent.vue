@@ -1,6 +1,6 @@
 <template>
 <div class="document-card" @click="changeOpenState">
-    <h1>{{ title }}</h1>
+    <h1>{{ title }} </h1>
     <template v-if="open">
         <p>{{ description }}</p>
         <RouterLink class="document-button" :to="{ name: 'document', params: { id: documentId } }"> View More</RouterLink>
@@ -18,7 +18,7 @@ export default{
     props:{
         documentId: Number,
         title: String,
-        description: String
+        description: String,
     },
     data(){
         return{
@@ -30,6 +30,7 @@ export default{
     },
     methods:{
         changeOpenState(){
+            console.log(matches)
             this.open = !this.open
         }
     }
